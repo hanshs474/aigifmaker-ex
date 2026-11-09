@@ -14,7 +14,7 @@ defmodule Aigifmaker do
   `:rejected`, `:failed`, `:timeout` or `:other`.
 
   Options for every call: `:api_key`, `:base_url` (`"https://aigifmaker.ai"`),
-  `:timeout` (milliseconds `generate/2` and `wait/2` keep polling, 5 minutes),
+  `:timeout` (milliseconds `generate/2` and `wait/2` keep polling, 15 minutes),
   `:poll_ms` (3000).
 
   Uses only `:httpc` from OTP and the standard `JSON` module; no dependencies.
@@ -85,7 +85,7 @@ defmodule Aigifmaker do
   @doc "Polls a task every 3 seconds until it finishes and returns the GIF URL."
   @spec wait(String.t(), keyword()) :: {:ok, String.t()} | error()
   def wait(task_id, opts \\ []) do
-    limit = opts[:timeout] || 300_000
+    limit = opts[:timeout] || 900_000
     deadline = System.monotonic_time(:millisecond) + limit
     poll(task_id, opts[:poll_ms] || 3_000, deadline, limit, opts)
   end

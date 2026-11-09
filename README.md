@@ -32,10 +32,10 @@ Each GIF costs 1 credit on your AI GIF Maker account, the same as on the website
 
 ## Options
 
-Every function takes `api_key:`, `base_url:` and `timeout:` (milliseconds `generate/2` waits, 5 minutes by default):
+Every function takes `api_key:`, `base_url:` and `timeout:` (milliseconds `generate/2` waits, 15 minutes by default):
 
 ```elixir
-Aigifmaker.generate("a tiny dragon sneezing a puff of glitter", api_key: "sk-...", timeout: 300_000)
+Aigifmaker.generate("a tiny dragon sneezing a puff of glitter", api_key: "sk-...", timeout: 900_000)
 ```
 
 ## Submit now, collect later
